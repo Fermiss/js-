@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <style>
+        div {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+        }
+
+        #circle {
+            
+            font-size: 200px;
+            color: #7f318a;
+        }
+
+        #square {
+            top: 100px;
+            left: 100px;
+            background-color: #7f318a;
+        }
+    </style>
+</head>
+
+<body id="body">
+    <input type="radio" id="radio1" name="1" value="circle">
+    <label for="radio1">Сёркл</label><br>
+
+    <input type="radio" id="radio2" name="1" value="square">
+    <label for="radio2">Скваре</label><br>
+
+    <div id="circle">&#x25CF</div>
+    <div id="square"></div>
+
+    <script>
+        "use strict";
+        let square = document.getElementById("square");
+        square.style.opacity = 0;
+        let circle = document.getElementById("circle");
+        circle.style.opacity = 0;
+        
+            setInterval(() => {
+                if (document.getElementById('radio1').checked) {
+                    func(document.getElementById('radio1').value);
+                }if(document.getElementById('radio2').checked) {
+                    func(document.getElementById('radio2').value);
+                }
+            }, 2000);
+            
+        function func(figure) {
+            if (figure == "square") {
+                let square = document.getElementById("square");
+                square.style.opacity = 1;
+                let circle = document.getElementById("circle");
+                circle.style.opacity = 0;
+
+            } else {
+                let circle = document.getElementById("circle");
+                circle.style.opacity = 1;
+                let square = document.getElementById("square");
+                square.style.opacity = 0;
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

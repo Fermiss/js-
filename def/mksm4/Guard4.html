@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Padalitsa Maxim</title>
+</head>
+<body>
+    <script>
+        const numberInputCheck = (text) => {
+            let input = prompt(`${text}`, "Ваше значение")
+            if(isNaN(Date.parse(input))){
+                alert("не корректно введенная дата, попробуйте снова!")
+                numberInputCheck(text)
+            }
+            return new Date(input); 
+        }
+
+        let a = numberInputCheck("Введите дату: ");
+        let b = a.getMonth();
+        let era ='';
+        switch(b){
+            case 0:
+            case 1:
+                era = 'зима';
+                break;
+            case 2:
+            case 3:
+            case 4:
+                era = 'Весна';
+                break;
+            case 5:
+            case 6:
+            case 7:
+                era = 'Лето';
+                break;
+            case 8:
+            case 9:
+            case 10:
+                era = 'Осень';
+                break;
+            case 11:
+                era = 'Зима';
+                break;
+        }
+        document.write(`<p> Время года=${era}`)
+        
+    </script>
+</body>
+</html>

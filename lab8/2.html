@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Кобельчук Андрей</title>
+    <style>
+        h2 {
+            text-align: center;
+        }
+
+        hr {
+            height: 2px;
+            background-color: black;
+        }
+
+        .hidden {
+            display: none;
+            color: red;
+        }
+
+        span {
+            padding-right: 10px;
+        }
+
+        img {
+            grid-column-start: 2;
+            width: 165px;
+            height: 40px;
+        }
+
+        #button {
+            grid-column-start: 2;
+            width: 165px;
+        }
+
+        p {
+            font-weight: bold;
+            text-align: right;
+            margin: 0 auto;
+            width: 290px;
+        }
+
+        b {
+            font-weight: bold;
+            text-align: right;
+            margin: 0 auto;
+            width: 1000px;
+        }
+
+        select {
+            width: 165px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>База содержит результаты централизованного тестирования</h2>
+
+    <hr class="hr" />
+    <p>
+        Серия паспорта
+        <input class="input" type="text" pattern="[A-Z]{2}" id="1" required />
+        <span id="hidden1" class="hidden">
+            Введите серию паспорта, например: HB
+        </span>
+    </p>
+    <br />
+
+    <p>
+        Номер паспорта
+        <input class="input" type="text" pattern="\d{7}" id="2" required />
+    </p>
+    <span id="hidden2" class="hidden">
+        <p>Введите номер паспорта</p>
+    </span>
+
+    <br />
+
+    <p>
+        Номер бланка
+        <input class="input" type="text" pattern="\d" id="3" required />
+    </p>
+    <span id="hidden3" class="hidden">
+        <p>Введите номер бланка</p>
+    </span>
+
+    <br />
+    <p>
+        Предмет
+        <select name="s" id="s">
+            <option value="0" selected disabled>Выберите предмет</option>
+            <option value="1">Русский</option>
+            <option value="2">Белорусский</option>
+            <option value="3">Математика</option>
+            <option value="4">Физика</option>
+        </select>
+    </p>
+    <span id="hidden13" class="hidden">
+        <p>Введите предмет</p>
+    </span>
+
+    <br />
+    <p>
+        <img src="CAPTCHA.png" />
+    </p>
+    <br />
+    <p>
+        Код на картинке
+        <input class="input" type="text" id="4" required pattern="433841" />
+    </p>
+    <span id="hidden4" class="hidden">
+        <p>Введите код</p>
+    </span>
+    <br />
+    <p>
+        <button id="button">Найти</button>
+    </p>
+
+    <script>
+        let selectinputs = document.querySelectorAll(".select");
+
+        let inputs = document.querySelectorAll(".input");
+        let button = document.querySelector("#button");
+        button.onclick = function Click() {
+            for (let i = 0; i < inputs.length; i++) {
+                if (
+                    inputs[i].value == "" ||
+                    inputs[i].value.replace(new RegExp(inputs[i].pattern), "")
+                ) {
+                    document.querySelector("#hidden" + (i + 1)).style.display = "block";
+                } else {
+                    document.querySelector("#hidden" + (i + 1)).style.display = "none";
+                }
+            }
+            let n = document.getElementById("s").options.selectedIndex;
+            if (n <= 0) {
+                document.querySelector("#hidden13").style.display = "block";
+            } else {
+                document.querySelector("#hidden13").style.display = "none";
+            }
+        };
+    </script>
+</body>
+
+</html>

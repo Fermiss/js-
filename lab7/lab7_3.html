@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      ul {
+        list-style-type: none;
+      }
+
+      .open-symb:hover {
+        font-weight: bold;
+        cursor: default;
+      }
+
+      .open-symb:before {
+        content: "\27A0";
+        display: inline-block;
+        margin-right: 10px;
+      }
+
+      .nested {
+        display: none;
+      }
+
+      .opened {
+        display: block;
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Кобельчук Андрей</title>
+  </head>
+  <body>
+    <ul id="startUl">
+      <li>
+        <span class="open-symb">[Этот компьютер]</span>
+        <ul class="nested">
+          <li class="li">[C:] Локальный диск</li>
+          <li>
+            <span class="open-symb">[D:] Локальный диск</span>
+            <ul class="nested">
+              <li class="li">[New folder]</li>
+              <li>
+                <span class="open-symb">[5sem]</span>
+                <ul class="nested">
+                  <li class="li">[ABC]</li>
+                  <li class="li">[Java]</li>
+                  <li class="li">[C++]</li>
+                  <li class="li">[JavaScript)))]</li>
+                </ul>
+              </li>
+              <li class="li">[New folder(2)]</li>
+            </ul>
+          </li>
+          <li class="li">[F:] Локальный диск</li>
+        </ul>
+      </li>
+    </ul>
+    <script>
+      let openClose = (e) => {
+        e.target.parentElement
+          .querySelector(".nested")
+          .classList.toggle("opened");
+      };
+
+      let toggler = document.querySelectorAll(".open-symb");
+
+      for (let i = 0; i < toggler.length; i++) {
+        toggler[i].addEventListener("click", openClose);
+      }
+
+    </script>
+  </body>
+</html>

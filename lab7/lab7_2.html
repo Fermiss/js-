@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      .https {
+        text-decoration: underline dotted;
+        color: black;
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Кобельчук Андрей</title>
+  </head>
+  <body>
+    <div>
+      <ul>
+        <li><a href="">index-html</a></li>
+        <li><a href="">https://google.com</a></li>
+        <li><a href="">https://www.gstu.by</a></li>
+        <li><a href="">file://G:/users/RPI/test.html</a></li>
+        <li><a href="">/local/</a></li>
+        <li><a href="">http://www.php.su</a></li>
+        <li><a href="">images/cat.jpg</a></li>
+        <li><a href="">https://www.tut.by</a></li>
+      </ul>
+    </div>
+    <script>
+      let aHrefs = document.querySelectorAll("a");
+      aHrefs.forEach((e) =>
+        e.textContent.startsWith("https://") ||
+        e.textContent.startsWith("http://")
+          ? (e.classList += "https")
+          : null
+      );
+    </script>
+  </body>
+</html>

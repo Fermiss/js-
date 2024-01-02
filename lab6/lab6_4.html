@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> Кобельчук А.И.</title>
+   <style>
+    
+  </style>
+  </head>
+  <body>
+    <script>
+        "use strict";
+        class acoustic  {
+            constructor(type, amplifier, maxPower, material){
+                this.type = type;
+                this.amplifier = amplifier;
+                this.maxPower = maxPower;
+                this.material = material;
+            }
+            get getType(){
+                return this.type;
+            }
+            set setType(type){
+                this.type = type;
+            }
+
+            get getAmplifier(){
+                return this.amplifier;
+            }
+            set setAmplifier(amplifier){
+                this.amplifier = amplifier;
+            }
+
+            get getMaxPower(){
+                return this.maxPower;
+            }
+            set setMaxPower(maxPower){
+                this.maxPower = maxPower;
+            }
+            
+            get getMaterial(){
+                return this.material;
+            }
+            set setMaterial(material){
+                this.material = material;
+            }
+
+            info(){
+                return `type: ${this.type},
+                 amplifier: ${this.amplifier},
+                 max power: ${this.maxPower},
+                 material: ${this.material}.`;
+            }
+        }
+        
+        class task4 extends acoustic{
+            constructor(type, amplifier, maxPower, material, date, price){
+                super(type, amplifier, maxPower, material);
+                this.date = date;
+                this.price = price;
+            }
+            get getDate(){
+                return this.date;
+            }
+            set setDate(date){
+                this.date = date;
+            }
+
+            get getPrice(){
+                return this.price;
+            }
+            set setPrice(price){
+                this.price = price;
+            }
+            info(){
+                return `type: ${this.type},
+                 amplifier: ${this.amplifier},
+                 max power: ${this.maxPower},
+                 material: ${this.material}.
+                 date: ${this.date},
+                 price: ${this.price}`;
+            }
+        }
+
+        let newObj = new task4("type1", "marhsall", 900, "bereza", "20.08.2002", 1200);
+        document.write(newObj.info());
+        
+  </script>
+  </body>
+</html>

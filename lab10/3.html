@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Кобельчук Андрей</title>
+    <script src="jQuery.js"></script>
+  </head>
+  <body>
+    <input class="inputMounth" type="text" placeholder="Введите номер месяца" />
+    <input type="text" class="inputEyer" placeholder="Введите год" />
+    <table ></table>
+    <script>
+      $("input.inputEyer").on("input.inputEyer", () => {
+        if (
+          parseInt($("input.inputEyer").val()) < 2050 &&
+          parseInt($("input.inputEyer").val()) >= 1900 &&
+          parseInt($("input.inputMounth").val()) <= 12 &&
+          parseInt($("input.inputMounth").val()) > 0
+        ) {
+          let date = new Date(
+            +$("input.inputEyer").val(),
+            +$("input.inputMounth").val() - 1
+          );
+          let mainCreateString =
+            "<thead><th>Воскресенье</th><th>Вторник</th><th>Среда</th>" +
+            "<th>Четверг</th><th>Пятница</th><th>Суббота</th><th>Понедельник</th><thead>";
+          $("table>thead").remove();
+          for (
+            curDayNumber = 0;
+            curDayNumber < date.getDay() - 1;
+            curDayNumber++
+          ) {
+            mainCreateString += "<td></td>";
+          }
+          let currentMonth = date.getMonth();
+          while (date.getMonth() == currentMonth) {
+            if (curDayNumber >= 7) {
+              mainCreateString += "</tr><tr>";
+              curDayNumber = 0;
+            }
+            mainCreateString += "<td>" + date.getDate() + "</td>";
+            curDayNumber++;
+            date.setDate(date.getDate() + 1);
+          }
+          $("table>tbody").remove();
+          while (curDayNumber < 7) {
+            mainCreateString += "<td></td>";
+            curDayNumber++;
+          }
+          $("table").append(mainCreateString);
+        }
+      });
+    </script>
+  </body>
+</html>

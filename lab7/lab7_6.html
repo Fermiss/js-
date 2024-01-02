@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> Кобельчук Андрей</title>
+   <style>
+    li{
+            user-select:none;
+            color:darkviolet;
+        }
+        .selected{
+            color:orange;
+        }
+  </style>
+  </head>
+  <body>
+    <ul id = "books">
+      <li>BOOK1111111111111111111</li>
+      <li>BOOK222222222222222222222</li>
+      <li>BOOK3333333333333333333333</li>
+      <li>BOOK44444444444444444444444444</li>
+      <li>BOOK555555555555555555555555555</li>
+      <li>BOOK66666666666666666666666666666</li>
+      <li>BOOK777777777777777777</li>
+      <li>BOOK888888888888888888888</li>
+      <li>BOOK999999999999999999999</li>
+     
+  </ul>
+    <script>
+        let bookClick = (() => {  
+            return (e)=>{
+                let setDefault = (e, ignoreElem) => {
+                    let LIes = e.target.parentElement.querySelectorAll("li");
+                    LIes.forEach(e => {
+                        if (e != ignoreElem) e.classList.remove("selected");
+                    });
+                }
+
+                let selectList = (e, startElement, foundedElement) =>{
+                    let LIes = e.target.parentElement.querySelectorAll("li");
+                    let array = [];
+                    let whoFirst = null;
+                    let fillArray = false;
+                    let brk = false;
+
+                    LIes.forEach(e => {
+                        if (brk) return;
+                        if (fillArray) array.push(e);
+
+                        if (whoFirst == null && (e == foundedElement || e == startElement)){
+                            array.push(e);
+                            fillArray = true;
+
+                            if (e == foundedElement) whoFirst = foundedElement;
+                            else
+                            if (e == startElement) whoFirst = startElement;
+                        }
+
+                        if ((whoFirst == startElement && e == foundedElement) ||
+                            (whoFirst == foundedElement && e == startElement)){
+                            array.push(e);
+                            brk = true;
+                        }
+                    });
+                    array.forEach(e => e.classList.add("selected"));
+                }
+
+                let target = e.target;
+                if (!e.shiftKey && !e.ctrlKey){
+                    setDefault(e, target);
+                    previous = target;
+                    target.classList.toggle("selected");
+                }
+                
+                if (e.shiftKey){
+                    if (previous == null) previous = target;
+                    else
+                    {
+                        selectList(e, previous, target);
+                    }
+                }
+
+                if (e.ctrlKey){
+                    target.classList.toggle("selected")
+                }
+            }
+        })();
+        let books = document.querySelector("#books");
+        books.addEventListener("click", bookClick);
+ 
+    </script>
+  </body>
+</html>

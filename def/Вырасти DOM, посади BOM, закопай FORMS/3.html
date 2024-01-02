@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <style>
+    </style>
+</head>
+
+<body id="body">
+    <script>
+        "use strict";
+        class htmlEl {
+            constructor(name, text) {
+                this.name = name;
+                this.text = text;
+            }
+        }
+
+        let arr = [new htmlEl("div", "div :)"),
+        new htmlEl("h1", "h1 :)"),
+        new htmlEl("h6", "h6 :)")];
+        let i = 0;
+        arr.forEach(element => {
+            localStorage.setItem(i, JSON.stringify(element));
+            i++;
+        });
+        let array = [];
+        for (let i = 0; i < arr.length; i++) {
+            array.push(JSON.parse(localStorage.getItem(i)));
+        }
+        array.forEach(el =>{
+            func(el.name, el.text);
+        });
+
+        function func(addDiv, text) {
+            let addedDiv = document.createElement(addDiv);
+            addedDiv.textContent = text;
+            document.body.appendChild(addedDiv);
+        }
+
+    </script>
+</body>
+
+</html>

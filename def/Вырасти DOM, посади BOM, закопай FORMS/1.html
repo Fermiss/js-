@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <style>
+      button {
+        width: 165px;
+      }
+      #Values {
+        display: none;
+        position: fixed;
+        background-color: rgb(236, 40, 40);
+        height: 100%;
+        border: 4px solid rgb(236, 40, 40);
+        width: 100%;
+      }
+      th,
+        td {
+            padding: 10px 20px;
+            border: 1px solid #000;
+        }
+      table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+      
+    </style>
+  </head>
+  <body>
+    <div id="Values">
+      <p>Добавление новой записи</p>
+      <input placeholder="Type" type="text" />
+      <br />
+      <input placeholder="Amplifier" type="text" />
+      <br />
+      <input placeholder="MaxPower" type="text" />
+      <br />
+      <br /><br />
+      <button id="Button">Добавить</button>
+      <br /><br />
+      <button id="Close">Отмена</button>
+    </div>
+    <div>
+      <table id="Table"></table>
+      <br />
+      <button id="AddNewValues">Добавить запись</button>
+    </div>
+
+    <script>
+        class TaskClass {
+        constructor(type, amplifier, maxPower) {
+          this.type = type;
+          this.amplifier = amplifier;
+          this.maxPower = maxPower;
+        }
+        toString() {
+          return `${this.type} ${this.amplifier} ${this.maxPower} ${this.material}`;
+        }
+      }
+ 
+      
+      function AddNewValues() {
+        let addValues = document.querySelectorAll("input");
+        localStorage.setItem("newClass", JSON.stringify(new TaskClass(addValues[0].value, addValues[1].value, addValues[2].value,)));
+        let savedClass = JSON.parse(localStorage.getItem("newClass"));
+        let value = new TaskClass(
+            savedClass.type,
+            savedClass.amplifier,
+            savedClass.maxPower
+        );
+        array.push(value);
+        localStorage.clear();
+        CreateTable(array, "#Table");
+      }
+
+      let array = [
+        new TaskClass("1", "1", "1"),
+        new TaskClass("1", "1", "1"),
+      ];
+
+      function CreateTable(arr, output) {
+        let table = document.querySelector(output);
+        let creatorString = "<tr><th>";
+        creatorString += Object.keys(arr[0]).join("</th><th>");
+        arr.forEach((elem) => {
+          creatorString += "<tr>";
+          for (let e in elem) {
+            creatorString += "<td>" + elem[e] + "</td>";
+          }
+        });
+        table.innerHTML = creatorString;
+      }
+      let addNew = document.querySelector("#AddNewValues");
+      addNew.addEventListener("click", () => (values.style.display = "block"));
+
+      CreateTable(array, "#Table");
+      let values = document.querySelector("#Values");
+      let close = document.querySelector("#Close");
+      close.addEventListener("click", () => (values.style.display = "none"));
+
+      let button = document.querySelector("#Button");
+      button.addEventListener("click", AddNewValues);
+
+    </script>
+  </body>
+</html>

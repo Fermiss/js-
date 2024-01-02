@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Гудойть Влад</title>
+</head>
+<body>
+    <script>
+         "use strict"
+        let mark = prompt('Input mark student: ')
+        while(isNaN(mark)&&(parseInt(mark)>10||parseInt(mark)<1))
+        {
+         mark=prompt("Try again ");
+        }
+            if(parseInt(mark) >=9){
+                alert('It\'s a very good student');
+            }
+            else if(parseInt(mark)<9&&parseInt(mark)>=6){
+                alert('It\'s a good student');
+            }
+            else if(parseInt(mark)<6&&parseInt(mark)>=4){
+                alert('It\'s a bad student');
+            }
+            else{
+                alert('It\'s a very bad student');
+            }
+
+    </script>
+</body>
+</html>

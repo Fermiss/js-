@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Padalitsa Maxim</title>
+</head>
+<body>
+    <script>
+        const determineMinValue = (min,max) => {
+            let minVal = 0;
+            for(let i = min; i<=max; i++){
+                let value = 3*Math.pow(i,2) - 2*i-3; 
+                if(minVal<value){
+                    minVal = value;
+                }
+            }
+            return minVal; 
+        }
+        
+        document.write(`<p> Минимальное значение=${determineMinValue(-5,5)}`)
+        
+    </script>
+</body>
+</html>

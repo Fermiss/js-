@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Кобельчук Андрей</title>
+</head>
+
+<body>
+<script>
+let str = "прукрпшгукримсиршугапауп"
+document.write("<p>Введенная строка: " + str);
+document.write("<p>Новая строка: " +str.match(/[А-Яа-я]*/g).map(shakerStr).join(" "));
+
+function shakerStr(word) {
+    if (word.length > 2) {
+        let a = word.slice(1, word.length - 1);
+        let b = Array.from(a)
+        let c = b.sort(function () {return Math.random() - 0.5;})
+    return word[0] + c.join("") + word[word.length - 1];
+    }else
+        return word;
+}
+</script>
+</body>
+
+</html>

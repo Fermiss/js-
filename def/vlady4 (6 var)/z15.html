@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Гудойть Влад</title>
+</head>
+<body>
+    <script>
+        "use strict"
+        let dateString = prompt('Input date: ');
+        while(parseInt(new Date(dateString).getFullYear())!=2022)
+        {
+            dateString = prompt('Try again.Input date: ');
+        }
+        let inputDate=new Date(dateString);
+        let leftBorderSummer=new Date("2022-06-01")
+        let rightBorderSummer=new Date("2022-08-31")
+        let leftBorderAutumn=new Date("2022-09-01")
+        let rightBorderAutumn=new Date("2022-11-30")
+        let leftBorderWinter=new Date("2022-01-01")
+        let rightBorderWinter=new Date("2022-02-28")
+        let leftBorderSpring=new Date("2022-03-01")
+        let rightBorderSpring=new Date("2022-05-31")
+        if(inputDate<rightBorderSummer&&inputDate>leftBorderSummer)
+        {
+            alert("Summer");
+        }
+        else if(inputDate<rightBorderSpring&&inputDate>leftBorderSpring)
+        {
+            alert("Spring");
+        }
+        else if(inputDate<leftBorderAutumn&&inputDate>rightBorderAutumn)
+        {
+            alert("Spring");
+        }
+        else
+        {
+            alert("Winter");
+        }
+    </script>
+</body>
+</html>

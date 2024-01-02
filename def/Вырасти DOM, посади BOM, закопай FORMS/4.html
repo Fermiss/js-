@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title></title>
+</head>
+
+<body>
+    <h2>Blocks</h2>
+    <div>
+        <p>First</p>
+        <p>Second</p>
+        <p>Third</p>
+    </div>
+    <div>
+        <p>First</p>
+        <p>Second</p>
+        <p>Third</p>
+    </div>
+    <div>
+        <p>First</p>
+        <p>Second</p>
+        <p>Third</p>
+    </div>
+
+    <h2>Lists</h2>
+    <p>First</p>
+    <ul>
+        <li>One</li>
+        <li>Two</li>
+        <li>Three</li>
+    </ul>
+    <p>Second</p>
+    <ol>
+        <li>One</li>
+        <li>Two</li>
+        <li>Three</li>
+    </ol>
+    <h2>Pictures</h2>
+    <div>
+        <picture><img src="1.png" alt=""></picture>
+        <picture><img src="2.png" alt=""></picture>
+        <picture><img src="3.png" alt=""></picture>
+    </div>
+    <h2>DropDown list</h2>
+    <select name="list" id="">
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="">Three</option>
+    </select>
+    <div></div>
+    
+  <script>
+    "use strict";
+    document.body.onclick = function (event) {
+        for (child of event.target.parentNode.children) {
+          child.parentNode.style.fontWeight = "bold";
+        }
+      };
+
+  </script>
+</body>
+
+

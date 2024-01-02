@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Ходаковский Глеб</title>
+</head>
+<body>
+    <script>
+        const numberInputCheck = (text) => {
+            let input = prompt(`${text}`, "Ваше значение")
+            if(isNaN(Date.parse(input))){
+                alert("не корректно введенная дата, попробуйте снова!")
+                numberInputCheck(text)
+            }
+            return new Date(input); 
+        }
+
+        let a = numberInputCheck("Введите дату: ");
+        
+        let b = new Date();
+        let days = 0;
+        let days2 = a.days;
+        if(a.getTime()>b.getTime()){
+            days = Math.floor((a.getTime()-b.getTime())/86400000)
+        }
+        else{
+            days = Math.floor((b.getTime()-a.getTime())/86400000);
+        }
+        document.write(`<p> Дни=${days}`)
+        
+    </script>
+</body>
+</html>

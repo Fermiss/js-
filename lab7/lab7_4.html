@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Кобельчук Андрей</title>
+    <style>
+      .fig {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      Основные цвета
+      <input type="color" list="colors" id="favcolor" name="favcolor" />
+    </p>
+    <datalist id="colors">
+      <option value="#EC9898"></option>
+      <option value="#FFFF00"></option>
+      <option value="#E9A1F2"></option>
+      <option value="#00FA9A"></option>
+      <option value="#00FFFF"></option>
+      <option value="#0000CD"></option>
+      <option value="#F4A460"></option>
+      <option value="#800000"></option>
+      <option value="#8A2BE2"></option>
+      <option value="#FF00FF"></option>
+      <option value="#FF4500"></option>
+      <option value="#C71585"></option>
+      <option value="#1E90FF"></option>
+      <option value="#008000"></option>
+      <option value="#800000"></option>
+    </datalist>
+
+    <script>
+      document.querySelector("input").onchange = function () {
+        document.querySelector("body").style.backgroundColor = this.value;
+      };
+      
+    </script>
+  </body>
+</html>

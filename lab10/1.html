@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Кобельчук Андрей</title>
+    <script src="jQuery.js"></script>
+    <script src="jqSorter.js"></script>
+  </head>
+  <body>
+    <table id="table"></table>
+    <script>
+     class acoustic {
+        constructor(type, amplifier, maxPower, material) {
+          this.type = type;
+          this.amplifier = amplifier;
+          this.maxPower = maxPower;
+          this.material = material;
+        }
+        get Type() {
+          return this.type;
+        }
+        set Type(types) {
+          this.type = types;
+        }
+
+        get Amplifier() {
+          return this.amplifier;
+        }
+        set Amplifier(diagonals) {
+          this.amplifier = amplifier;
+        }
+
+        get MaxPower() {
+          return this.maxPower;
+        }
+        set MaxPower(maxPower) {
+          this.maxPower = maxPower;
+        }
+
+        get Material() {
+          return this.material;
+        }
+        set Material(material) {
+          this.material = material;
+        }
+
+        toString() {
+          return `${this.type} ${this.amplifier} ${this.maxPower} ${this.material}`;
+        }
+      }
+
+      let array = [
+        new acoustic("950", "85", "200", "zxc"),
+        new acoustic("90", "75", "200", "zxc"),
+        new acoustic("Q800", "65", "180", "zxc"),
+        new acoustic("Q95", "75", "180", "zxc"),
+      ];
+      
+      localStorage.setItem(0, JSON.stringify(array));
+      let createTable = ((arr, output) => {
+        let creatorString = "<thead><tr><th>";
+        creatorString += Object.keys(arr[0]).join("</th><th>");
+        creatorString += "</tr></thead><tbody>";
+        arr.forEach((elem) => {
+          for (let e in elem) {
+            creatorString += "<td>" + elem[e] + "</td>";
+          }
+          creatorString += "</tr>";
+        });
+        creatorString += "</tbody>";
+        $(output).append(creatorString);
+      })(JSON.parse(localStorage.getItem(0)), "table");
+      $("table").tablesorter();
+    </script>
+  </body>
+</html>

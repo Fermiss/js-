@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> Кобельчук А.И.</title>
+   <style>
+    .style1 {
+        margin-left: 38%; 
+        margin-right: 38%;      
+        display: block;   
+        padding: 0.8%;
+        line-height: 60%;   
+    }      
+  </style>
+  </head>
+  <body>
+    <script>
+        "use strict";
+        //let calulateFunc = (x, y, z) => Math.pow(y, z) + Math.sqrt(Math.abs(x) + Math.abs(y));
+        let x = prompt("Введите x:");
+        let y = prompt("Введите y:");
+        let z = prompt("Введите z:");
+        //let b = calulateFunc(x,y,z);
+
+        document.write('<div class="style1">'); 
+        document.write('<img src ="task3.PNG"/><p>');
+        document.write("x: " + x + "<p>");   
+        document.write("y: " + y + "<p>");  
+        document.write("z: " + z + "<p>");  
+        //document.write("Значаение функции b: " + b + "<p>"); 
+        document.write("Значаение функции b: " + getB(x)(y)(z) + "<p>");   
+        document.write("Информация о разработчике скрипта:<p>");
+        document.write('<img src ="angry-black-cat-meme.gif"/><p>');  
+            
+          function getB(x){
+            return (y) =>{
+              return (z) =>{
+                return Math.pow(y, z) + Math.sqrt(Math.abs(x) + Math.abs(y));
+              }
+            }
+          }  
+  </script>
+  </body>
+</html>

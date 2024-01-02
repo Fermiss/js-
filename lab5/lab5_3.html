@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Кобельчук Андрей</title>
+    </head>
+    <body>
+    <script>
+        "use strict"
+        let str = "рпггшаврпгвмспук";
+        document.write("<p>" + str+"</p>");
+        let result = Array.from(str);
+        document.write("<p>Зашифрованная строка: " + result.map(shifr).join("")+"</p>");
+
+        function shifr(x) {
+            if (x.match(/[a-za-я]/i)) {
+                if (x == "я") {
+                    x = "a";
+            }else {
+                x = String.fromCharCode(x.charCodeAt(0) + 1);
+            }}
+            return x;
+        }
+</script>
+</body>
+
+</html>

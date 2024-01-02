@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Кобельчук Андрей</title>
+    <style>
+      #error {
+        display: none;
+        position: fixed;
+        background-color: rgb(236, 40, 40);
+        height: 100%;
+        border: 4px solid rgb(236, 40, 40);
+        width: 100%;
+      }
+      .text {
+        font-size: x-large;
+        font-weight: bolder;
+        margin: left;
+      }
+    </style>
+  </head>
+  <body>
+    <textarea cols="30" rows="2">Текст задания</textarea>
+
+    <div id="error">
+      <p class="text">ОШИБКА</p>
+    </div>
+    <div>
+      <p>
+        Введите число a:
+        <input class="value" type="text" />
+      </p>
+
+      <p>
+        Введите число b:
+        <input class="value" type="text" />
+      </p>
+
+      <p>
+        Введите число c:
+        <input class="value" type="text" />
+      </p>
+
+      <p>
+        Результат выполнения программы:
+        <input id="Result" type="text" />
+      </p>
+
+      <button id="button">Вычислить</button>
+    </div>
+
+    <script>
+      let modal = document.querySelector("#error");
+      modal.addEventListener("click", () => (modal.style.display = "none"));
+      button = document.querySelector("#button");
+      button.onclick = function Click() {
+        let inputs = document.querySelectorAll(".value");
+        let result = document.querySelector("#Result");
+        let sum = 0;
+        let average = 0;
+        try {
+          inputs.forEach((e) => {
+            if (e.value == "" || isNaN(+e.value)) throw new "Exception"();
+            sum += +e.value;
+          });
+          average = sum / inputs.length;
+          result.value = average;
+        } catch {
+          modal.style.display = "block";
+        }
+      };
+    </script>
+  </body>
+</html>

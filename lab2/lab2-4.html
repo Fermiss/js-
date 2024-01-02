@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> Кобельчук А.И.</title>
+   <style>
+     table {
+    border-spacing: 1px;
+    border: 1px solid grey;
+}
+td {
+    border: 1px solid grey;
+    padding:5px;
+    text-align: center;
+}
+  </style>
+  </head>
+  <body>
+    <script>
+      "use strict"; 
+
+        let x,n=1;
+
+        document.write('<table> ');
+        document.write('<tr> ');
+        for(let i = 1; i <= 100; i++){
+            x = (n * (n + 1)) / 2;
+            if (( i - 1 ) % 10 == 0) document.write('<tr> ');
+            if ( i == x ) {
+                document.write('<td style=" color:red;">'+i+'</td>'); 
+                n++;
+            }
+            else  document.write('<td style=" color:black;">'+i+'</td>');
+        }
+
+        document.write('</tr>'); 
+        document.write('</table> ');
+
+    </script>
+  </body>
+</html>

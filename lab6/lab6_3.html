@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> Кобельчук А.И.</title>
+   <style>
+    
+  </style>
+  </head>
+  <body>
+    <script>
+        "use strict";
+        class acoustic  {
+            constructor(type, amplifier, maxPower, material){
+                this.type = type;
+                this.amplifier = amplifier;
+                this.maxPower = maxPower;
+                this.material = material;
+            }
+            get getType(){
+                return this.type;
+            }
+            set setType(type){
+                this.type = type;
+            }
+
+            get getAmplifier(){
+                return this.amplifier;
+            }
+            set setAmplifier(amplifier){
+                this.amplifier = amplifier;
+            }
+
+            get getMaxPower(){
+                return this.maxPower;
+            }
+            set setMaxPower(maxPower){
+                this.maxPower = maxPower;
+            }
+            
+            get getMaterial(){
+                return this.material;
+            }
+            set setMaterial(material){
+                this.material = material;
+            }
+
+            info(){
+                return `type: ${this.type},
+                 amplifier: ${this.amplifier},
+                 max power: ${this.maxPower},
+                 material: ${this.material}.`;
+            }
+        }
+        
+        let guitar = new acoustic("тип1", "marshall", 800,"dsp");
+        document.write(guitar.info());
+  </script>
+  </body>
+</html>

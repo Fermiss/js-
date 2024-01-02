@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> Кобельчук А.И.</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas" width="200" height="200"></canvas>
+    <script>
+        "use strict";
+        class trapeze {
+            constructor(lowerBase, hightBase, height) {
+                this.hightBase = hightBase;
+                this.lowerBase = lowerBase;
+                this.height = height;
+            }
+            get getAncle() {
+                return (hightBase - lowerBase) / height;
+            }
+            set setHeight(height) {
+                this.height = height;
+            }
+            set setLowerBase(lowerBase) {
+                this.lowerBase = lowerBase;
+            }
+            set setHightBase(hightBase) {
+                this.hightBase = hightBase;
+            }
+            get S() {
+                return (lowerBase + hightBase) * height / 2;
+            }
+            info() {
+                document.write("a:" + lowerBase + " b:" + hightBase + " h:" + height);
+            }
+            selfDraw() {
+                const canvas = document.querySelector("canvas");
+                const context = canvas.getContext("2d");
+                context.fillStyle = "red";
+                context.moveTo(0,this.height);
+                context.lineTo(this.hightBase,this.height);
+                context.lineTo(this.hightBase-(this.hightBase - this.lowerBase)/2,0);
+                context.lineTo((this.hightBase - this.lowerBase)/2,0);
+                context.lineTo(0,this.height);
+                context.stroke(); 
+            }
+        }
+
+        let obj1 = new trapeze(100,200,50);
+q
+        obj1.selfDraw();
+    </script>
+</body>
+
+</html>

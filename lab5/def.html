@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> Кобельчук А.И.</title>
+   <style>
+  </style>
+  </head>
+  <body>
+    <script>
+        "use strict";
+        // // 2 10 20
+        // let str = "abcdef";
+        // let answr ="";
+        // for (let i = str.length - 1; i >= 0; i--){
+        //     answr+=str[i];
+        // }
+        // document.write(str);
+        // document.write("<br>");
+        // document.write(answr);
+        // //////
+        // let str2 ="     gheiuhgiuer hurheg guerhg erugih  ";
+        // let strArr = str2.concat(" ");
+        // for (let i = 0; i < strArr.length; i++) {
+        //     strArr[i].replaceAll(" ", "");
+        // }
+        // document.write("<br>");
+        // document.write(str2);
+        // document.write("<br>");
+        // document.write(strArr);
+        // ///////
+        // let ans = 0;
+        // let afterZero= 0;
+        // let str3 = "hgeirugh++++-----0++_";
+        // for (let i = 0; i < str3.length; i++) {
+        //     if(str3[i] == "+" || str3[i] == "-"){
+        //         ans++;
+        //     }
+        // }
+        // let newArr = str3.split("0");
+        // for (let i = 0; i < newArr.length; i+=1) {
+        //     for (let j = 0; j < newArr[i].length; j++) {
+        //         if(str3[i] == "+" || str3[i] == "-"){
+        //         ans++;
+        //         }   
+        //     }  
+        // }
+        // document.write("<br>");
+        // document.write(str3);
+        // document.write("<br>");
+        // document.write(ans);
+
+        // 3 11 21
+        let str = "69abcdef";
+        document.write(str);
+        if(str.match(/^[A-Za-z_]/)){
+            if (str.match(/[A-Za-z0-9_]/i)) {
+                 document.write("<br>Yes");
+            }else{
+                document.write("<br>No");
+            }
+        }else{
+            document.write("<br>No");
+        }
+        ///////
+        let str2 = "giudh fudhgui gfdiuhgfdius gfuidg eiugf";
+        let arrStr = str2.split(" ");
+        let maxSize = 0;
+        let maxIndex = 0;
+        for (let i = 0; i < arrStr.length; i++) {
+            if (maxSize<arrStr[i].length) {
+                maxSize = arrStr[i].length;
+                maxIndex = i;
+            }
+        }
+        document.write("<br>"+str2);
+        document.write("<br>Самая длинная строка:" + arrStr[maxIndex]);
+        document.write("<br>Номер строки:" + (maxIndex + 1));
+        /////
+        let str3 ="grgrewgfgrwxwxwxw";
+        document.write("<br>"+str3);
+        if (!(str3.match("x") || str3.match("w"))) {
+            document.write("<br>Нет одного из символов");
+        }else{
+            let indexX = str3.indexOf("x");
+            let indexW = str3.indexOf("w");
+            if (indexX > indexW) {
+                document.write("X");
+            }else{
+                document.write("W");
+            }
+        }
+  </script>
+  </body>
+</html>

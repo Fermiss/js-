@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Кобельчук Андрей</title>
+    <style>
+      button {
+        width: 165px;
+      }
+      #Values {
+        display: none;
+        position: fixed;
+        background-color: rgb(236, 40, 40);
+        height: 100%;
+        border: 4px solid rgb(236, 40, 40);
+
+        width: 100%;
+      }
+      th,
+        td {
+            padding: 10px 20px;
+            border: 1px solid #000;
+        }
+      table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+      
+    </style>
+  </head>
+  <body>
+    <div id="Values">
+      <p>Добавление новой записи</p>
+      <input placeholder="Type" type="text" />
+      <br />
+      <input placeholder="Amplifier" type="text" />
+      <br />
+      <input placeholder="MaxPower" type="text" />
+      <br />
+      <input placeholder="Material" type="text" />
+
+      <br /><br />
+      <button id="Button">Добавить</button>
+      <br /><br />
+      <button id="Close">Отмена</button>
+    </div>
+    <div>
+      <table id="Table"></table>
+      <br />
+      <button id="AddNewValues">Добавить запись</button>
+    </div>
+
+    <script>
+      function AddNewValues() {
+        let addValues = document.querySelectorAll("input");
+        let value = new acoustic(
+          addValues[0].value,
+          addValues[1].value,
+          addValues[2].value,
+          addValues[3].value
+        );
+        array.push(value);
+        CreateTable(array, "#Table");
+      }
+
+      class acoustic {
+        constructor(type, amplifier, maxPower, material) {
+          this.type = type;
+          this.amplifier = amplifier;
+          this.maxPower = maxPower;
+          this.material = material;
+        }
+        get Type() {
+          return this.type;
+        }
+        set Type(types) {
+          this.type = types;
+        }
+
+        get Amplifier() {
+          return this.amplifier;
+        }
+        set Amplifier(diagonals) {
+          this.amplifier = amplifier;
+        }
+
+        get MaxPower() {
+          return this.maxPower;
+        }
+        set MaxPower(maxPower) {
+          this.maxPower = maxPower;
+        }
+
+        get Material() {
+          return this.material;
+        }
+        set Material(material) {
+          this.material = material;
+        }
+
+        toString() {
+          return `${this.type} ${this.amplifier} ${this.maxPower} ${this.material}`;
+        }
+      }
+
+      let array = [
+        new acoustic("950", "85", "200", "zxc"),
+        new acoustic("90", "75", "200", "zxc"),
+        new acoustic("Q800", "65", "180", "zxc"),
+        new acoustic("Q95", "75", "180", "zxc"),
+      ];
+
+      function CreateTable(arr, output) {
+        let table = document.querySelector(output);
+        let creatorString = "<tr><th>";
+        creatorString += Object.keys(arr[0]).join("</th><th>");
+        arr.forEach((elem) => {
+          creatorString += "<tr>";
+          for (let e in elem) {
+            creatorString += "<td>" + elem[e] + "</td>";
+          }
+        });
+        table.innerHTML = creatorString;
+      }
+      let addNew = document.querySelector("#AddNewValues");
+      addNew.addEventListener("click", () => (values.style.display = "block"));
+
+      CreateTable(array, "#Table");
+      let values = document.querySelector("#Values");
+      let close = document.querySelector("#Close");
+      close.addEventListener("click", () => (values.style.display = "none"));
+
+      let button = document.querySelector("#Button");
+      button.addEventListener("click", AddNewValues);
+    </script>
+  </body>
+</html>

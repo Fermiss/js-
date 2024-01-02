@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> Кобельчук А.И.</title>
+   <style>
+    
+  </style>
+  </head>
+  <body>
+    <script>
+        "use strict";
+        class acoustic  {
+            constructor(type, amplifier, maxPower, material){
+                this.type = type;
+                this.amplifier = amplifier;
+                this.maxPower = maxPower;
+                this.material = material;
+            }
+            get getType(){
+                return this.type;
+            }
+            set setType(type){
+                this.type = type;
+            }
+
+            get getAmplifier(){
+                return this.amplifier;
+            }
+            set setAmplifier(amplifier){
+                this.amplifier = amplifier;
+            }
+
+            get getMaxPower(){
+                return this.maxPower;
+            }
+            set setMaxPower(maxPower){
+                this.maxPower = maxPower;
+            }
+            
+            get getMaterial(){
+                return this.material;
+            }
+            set setMaterial(material){
+                this.material = material;
+            }
+
+            info(){
+                return `type: ${this.type},
+                 amplifier: ${this.amplifier},
+                 max power: ${this.maxPower},
+                 material: ${this.material}.`;
+            }
+        }
+        
+        class extendedAcoustic extends acoustic{
+            constructor(type, amplifier, maxPower, material, date, price){
+                super(type, amplifier, maxPower, material);
+                this.date = date;
+                this.price = price;
+            }
+            get getDate(){
+                return this.date;
+            }
+            set setDate(date){
+                this.date = date;
+            }
+
+            get getPrice(){
+                return this.price;
+            }
+            set setPrice(price){
+                this.price = price;
+            }
+            info(){
+                return `type: ${this.type},
+                 amplifier: ${this.amplifier},
+                 max power: ${this.maxPower},
+                 material: ${this.material}.
+                 date: ${this.date},
+                 price: ${this.price}`;
+            }
+        }
+
+        let obj1 = new extendedAcoustic("type1", "marhsall", 900, "bereza", "20.08.2002", 1200);
+        let obj2 = new extendedAcoustic("type2", "marhsall", 150, "dub", "24.12.2022", 800);
+        let obj3 = new extendedAcoustic("type3", "marhsall", 150, "dub", "24.12.2022", 6000);
+        let obj4 = new extendedAcoustic("type4", "marhsall", 150, "bereza", "24.12.2022", 4500);
+        let arr = [obj1, obj2, obj3, obj4];
+
+        arr.forEach(x=> document.write("<p>" + x.info() +"</p>"));
+        document.write("<p>Max price:</p>");
+        document.write(arr.sort((a,b)=> b.price - a.price)[0].info());
+        document.write("<p>Min price:</p>");
+        document.write(arr.sort((a,b)=> a.price - b.price)[0].info());
+        document.write("<p>Sum: " + arr.reduce((prevValue, currValue) => prevValue + currValue.getPrice, 0) + "</p>");
+        document.write("<p>Average: " + arr.reduce((prevValue, currValue) => prevValue + currValue.getPrice, 0)/arr.length + "</p>");
+        document.write("<p>Number of obj: " + arr.filter(x=> x.getPrice > arr.reduce((prevValue, currValue) => prevValue + currValue.getPrice, 0)/arr.length).length + "</p>");
+        
+  </script>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgb(208, 208, 212);
+      }
+      div {
+        position: absolute;
+        width: 130px;
+        height: 130px;
+      }
+      .img {
+        background-image: url("222.jpg");
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Кобельчук Андрей</title>
+  </head>
+  <body>
+    <div class="img"></div>
+    <script>
+      let pos = 0;
+      let x = 0;
+      let y = 0;
+      let radius = 130;
+      let speed = 0.02;
+      let timer;
+      let body = document.querySelector("body");
+
+      body.onmousemove = function mouse(e) {
+        clearInterval(timer);
+        timer = setInterval(function timer() {
+          x = e.x - 65 - Math.cos(pos) * radius;
+          y = e.y - 65 + Math.sin(pos) * radius;
+          pos += speed;
+          let div = document.querySelector("div");
+          div.style.left = x + "px";
+          div.style.top = y + "px";
+        }, 10);
+      };
+    </script>
+  </body>
+</html>

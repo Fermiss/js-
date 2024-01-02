@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Padalitsa Maxim</title>
+</head>
+<body>
+    <script>
+        const numberInputCheck = (text) => {
+            let input = prompt(`${text}`, "Ваше значение")
+            return input; 
+        }
+        let input = numberInputCheck('Введите ноту')
+        let gz = ''
+        switch(input){
+            case 'C':
+                gz = '266.89 герц'
+                break;
+            case 'D':
+                gz = '280.45 герц';
+                break;
+            case 'E':
+                gz = '304.83 герц';
+                break;
+            case 'F':
+                gz = '320.32 герц'
+                break;
+            case 'G':
+                gz = '331.12 герц';
+                break;
+            case 'A':
+                gz = '340.96 герц';
+                break;
+            case 'B':
+                gz = '353.43 герц';
+                break;
+            default:
+                gz = 'Такой ноты нет';
+                break;
+        }
+        document.write(`<p> Частота=${gz}`)
+        
+    </script>
+</body>
+</html>

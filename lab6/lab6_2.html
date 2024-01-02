@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> Кобельчук А.И.</title>
+   <style>
+    
+  </style>
+  </head>
+  <body>
+    <script>
+        "use strict";
+        function Acoustic(type, amplifier, maxPower, material){
+          this.type = type;
+          this.amplifier = amplifier;
+          this.maxPower = maxPower;
+          this.material = material;
+
+          this.setType = function(type){
+            this.type = type;
+          }
+          this.getType = function(){
+            return this.type;
+          }
+
+          this.setAmplifier = function(amplifier){
+            this.amplifier = amplifier;
+          }
+          this.getAmplifier = function(){
+            return this.amplifier;
+          }
+
+          this.setMaxPower = function(maxPower){
+            this.maxPower = maxPower;
+          }
+          this.getMaxPower = function(){
+            return this.maxPower;
+          }
+
+          this.setMaterial = function(type){
+            this.material = material;
+          }
+          this.getMaterial = function(){
+            return this.material;
+          }
+        }
+
+        // Object.defineProperty(Acoustic.prototype, {
+          
+        // })
+
+        Acoustic.prototype.info = function(){
+            return `type: ${this.type},
+                 amplifier: ${this.amplifier},
+                 max power: ${this.maxPower},
+                 material: ${this.material},
+                 date: ${this.date}.`;
+          }
+        
+        Acoustic.prototype.date = "12.01.2020";
+
+        let guitar = new Acoustic("type1", "marshall", 600, "bereza");
+        document.write(guitar.info());
+  </script>
+  </body>
+</html>

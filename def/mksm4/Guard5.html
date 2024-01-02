@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Padalitsa Maxim</title>
+    <style>
+</style>
+</head>
+<body>
+    <script>
+        "use strict";
+        const numberInputCheck = (text) => {
+            let input;
+            input = prompt(`${text}`, "Ваше значение")
+            if(isNaN(input)){
+                alert("Это не цифра, попробуйте снова")
+                numberInputCheck(text)
+            }
+            return parseInt(input)
+        }
+        const recursiveCalculate = (value,n,sourceNumb) => {
+            value = (1/2)*(value+(sourceNumb/value)) ;
+            if(n==0){
+               return value;
+            }
+            return recursiveCalculate(value,n-1,sourceNumb);
+        }
+        let x = numberInputCheck("Введите x: ");
+        let b = recursiveCalculate(x,10,x);
+        document.write(`<p> x = ${x}`)
+        document.write(`<p> res = ${b}`);
+        
+
+
+    </script>
+</body>
+</html>

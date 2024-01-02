@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> Кобельчук А.И.</title>
+   <style>
+    .style1 {
+        margin-left: 38%; 
+        margin-right: 38%;      
+        display: block;   
+        padding: 0.8%;
+        line-height: 60%;   
+    }      
+  </style>
+  </head>
+  <body>
+    <script>
+        "use strict";
+        let r = prompt("Введите r:");
+        let h = prompt("Введите h:");
+        
+        document.write('<div class="style1">');
+        document.write('<p><img src ="task2.PNG"/></p>');
+        document.write("<p>S = " + square(r) + "</p>");
+        document.write("<p>V = " + volume(h)(square(r)) + "</p>");   
+        document.write("<p>Информация о разработчике скрипта:</p>");
+        document.write('<p><img src ="angry-black-cat-meme.gif"/>/<p>');  
+            
+       
+        function volume(h){
+            return (s) =>{
+                return s * h / 3;
+            }
+        }
+        function volume2(h){
+          return(r) =>{
+              return Math.PI * r * r * h / 3;
+          }
+        }
+        function square(r){
+            return Math.PI * r * r;
+        }
+  </script>
+  </body>
+</html>

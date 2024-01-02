@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кобельчук Андрей</title>
+    <style>
+        b{
+            font-weight: bold;
+        }
+        span{
+            font-weight: normal;
+        }
+        t{
+            font-weight: normal;
+        }
+        .height{
+            width: 75px;
+        }
+        .width{
+            width: 75px;
+        }
+        
+    </style>
+</head>
+<body>
+    <h3>Горизонтальные линии</h3>
+    <p>Выберите значение параметров, которые требуется изменить, и нажмите кнопку <b>"Выполнить"<b></p>
+    <div width="100wh" style="min-height: 100px;">
+        <div class="line"></div>
+    </div>
+    <table border="1">
+        <tr>
+            <td>
+                <div>
+                    <t>Выравнивание</t><br>
+                    <input value="left" class="selectPosition" type="radio" name="Select_position" checked>
+                    <span>LEFT</span>
+                    <br>
+                    <input value="middle" class="selectPosition" type="radio" name="Select_position">
+                    <span>MIDDLE</span>
+                    <br>
+                    <input value="right" class="selectPosition" type="radio" name="Select_position">
+                    <span>RIGHT</span>
+                    
+                </div>
+                <div>
+                    <div>
+                        <input class = "height" >
+                        <span>Толщина линии (size) </span>
+                    </div>
+                    <div>
+                        <input class = "width" >
+                        <span>Длина линии (width) </span><br><br>
+                        <button class = "MyButton">Выполнить</button>
+                    </div>
+                </div>   
+            </td>
+            <td>
+                <t>Цвет линии(color)</t>
+                <div>
+                    <select class = "select">
+                    <option>green</option>
+                    <option>red</option>
+                    <option>navy</option>
+                    <option>olive</option>
+                    <option>gray</option>
+                    <option>teal</option>
+                    <option>silver</option>
+                    <option>yellow</option>
+                    <option>blue</option>
+                    <option>fuchsia</option>
+                    <option>pink</option>
+                    </select>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <script>
+        let button = document.querySelector(".MyButton");
+        button.onclick = function Click(){
+            let height = document.querySelector(".height");
+            let width = document.querySelector(".width");
+            let select = document.querySelector(".select");
+            let line = document.querySelector(".line");
+            let position = document.querySelectorAll(".selectPosition");
+            
+            line.style.backgroundColor = select.value;
+            line.style.width = width.value + "px";
+            line.style.height = height.value + "px";
+                        
+            position.forEach(e => {
+                if(e.checked){
+                    if(e.value == "middle"){
+                        line.style.float = "none";
+                        line.style.margin = "auto";
+                    }else if(e.value == "left"){
+                        line.style.float = "left";
+                    }else{
+                        line.style.float = "right";
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>

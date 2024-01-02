@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Кобельчук Андрей</title>
+    <meta charset="utf-8" />
+    <style>
+      #field {
+        height: 100vh;
+        width: 100wh;
+      }
+      #ball {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 50px;
+        transition: all 1s;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <img id="ball" src="ball.png" />
+      <img id="field" src="field.jpg" />
+    </div>
+    <script>
+      field.onclick = function (event) {
+        let fieldCoords = this.getBoundingClientRect();
+        let ballCoords = {
+          top:
+            event.clientY -
+            fieldCoords.top -
+            field.clientTop -
+            ball.clientHeight / 2 +
+            8,
+          left:
+            event.clientX -
+            fieldCoords.left -
+            field.clientLeft -
+            ball.clientWidth / 2 +
+            8,
+        };
+        // запреты на пересечение границ поля
+        if (ballCoords.top < 0) ballCoords.top = 0; //верх
+        if (ballCoords.left < 0) ballCoords.left = 0; //лево
+        if (ballCoords.left + ball.clientWidth > field.clientWidth) {
+          ballCoords.left = field.clientWidth - ball.clientWidth; //право
+        }
+        if (ballCoords.top + ball.clientHeight > field.clientHeight) {
+          ballCoords.top = field.clientHeight - ball.clientHeight; //низ
+        }
+        ball.style.left = ballCoords.left + "px";
+        ball.style.top = ballCoords.top + "px";
+      };
+    </script>
+  </body>
+</html>

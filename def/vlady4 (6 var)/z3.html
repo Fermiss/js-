@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Гудойть Влад</title>
+</head>
+<body>
+    <script>
+        "use strict"
+         let x =prompt("Input height ",'');
+         while(isNaN(x))
+         x=prompt("Try again .Input x ",'');
+         document.write("<p> height in fot = "+x)
+         let answer=ParseToSantimetrs(parseFloat(x));
+         function ParseToSantimetrs (x)
+         {
+            return x*30.48;
+         }
+         document.write("<p> height in santimetrs = "+answer)
+    </script>
+</body>
+</html>

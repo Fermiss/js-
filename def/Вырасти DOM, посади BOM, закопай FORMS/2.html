@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title></title>
+  <style>
+    #button {
+      margin: 50 px;
+      border: 1px solid black;
+      width: 100px;
+    }
+  </style>
+</head>
+
+<body id="body">
+  <select id="mySelect"></select>
+  <button id="button">Button</button>
+  <input placeholder="Type" type="text" id="inputId">
+  <script>
+    "use strict";
+    let arr = ["div", "h1", "h6", , "hr"];
+    var x = document.getElementById("mySelect");
+    arr.forEach(k => {
+      let option = document.createElement("option");
+      option.text = k;
+      x.add(option);
+    });
+    const divButton = document.getElementById('button');
+    divButton.addEventListener('click', (e) => {
+      func(document.getElementById('mySelect').value);
+    });
+
+    function func(addDiv) {
+      let content = document.querySelectorAll("input");
+      let addedDiv = document.createElement(addDiv);
+      addedDiv.textContent = document.getElementById("inputId").value;
+      document.body.appendChild(addedDiv);
+    }
+
+  </script>
+
+</body>
+
+</html>

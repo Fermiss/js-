@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> Кобельчук А.И.</title>
+   <style>
+     div{
+            position: absolute;
+            width: 200px;
+            height: 200px;
+        }
+        #First{
+            background-color:#158ca1;
+        }
+        #Second{
+            top: 170px;
+            left: 50px;
+            background-color: rgba(0, 0, 0, 0.945);
+        }
+        #Third{
+            top: 60px;
+            left: 180px;
+            background-color: #7f318a;
+        }
+  </style>
+  </head>
+  <body>
+    <div id="First"></div>
+    <div id="Second"></div>
+    <div id="Third"></div>
+    <script>
+        "use strict";
+        let changeIndex = (e) =>{
+            divs.forEach(e => {
+                e.style.zIndex = 0;
+            });
+            e.target.style.zIndex = 1;
+        }
+        let divs = document.querySelectorAll("div");
+
+        for(let i = 0; i < divs.length; i++){
+            divs[i].addEventListener("click", changeIndex);
+        } 
+ 
+        
+    </script>
+  </body>
+</html>

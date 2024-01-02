@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Гудойть Влад</title>
+</head>
+<body>
+    <script>
+        "use strict"
+        let leftBorder=-5;
+        let rightBorder=5;
+        let answer=execute(leftBorder,rightBorder);
+         
+         function execute (leftBorder,rightBorder)
+         {
+            let min=3*Math.pow(leftBorder,2)-2*leftBorder-3
+            let temp=0;
+            for(let i=leftBorder+1;i<=rightBorder;i++)
+            {
+                temp=3*i**2-2*i-3;
+                  if(min>temp)
+                    min =temp
+            }
+            return min
+         }
+         document.write("<p> leftBorder = "+ leftBorder+" rightBorder = "+rightBorder+"</p>");
+         document.write("<p> answer = "+ answer +"</p>");
+    </script>
+</body>
+</html>

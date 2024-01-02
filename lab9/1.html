@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      iframe {
+        width: 100vw;
+        height: 95vh;
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Кобельчук Андрей</title>
+  </head>
+  <body>
+    <p>
+      <a href="www.gstu.by">fshdgjj</a>
+    </p>
+    <div>
+      <button id="Back">Back</button>
+      <button id="Forv">Forv.</button>
+      <input id="Address" value="http://" type="text" />
+      <button id="Open">Открыть</button>
+      <input id="Check" type="checkbox" name="inNewWindow" />
+      <label for="inNewWindow">в новом окне</label>
+    </div>
+    <iframe id="Iframe" src="" frameborder="0"></iframe>
+    <script>
+      let back = document.querySelector("#Back");
+      let forv = document.querySelector("#Forv");
+      let openPage = document.querySelector("#Open");
+      let frame = document.querySelector("#Iframe");
+
+      openPage.onclick = function open() {
+        let check = document.querySelector("#Check");
+        let address = document.querySelector("#Address");
+
+        if (check.checked)
+          window.open(address.value, "blank", "width=1000, height=800");
+        else {
+          frame.src = address.value;
+        }
+      };
+      back.onclick = function goBack() {
+        history.back();
+      };
+
+      forv.onclick = function goForward() {
+        history.forward();
+      };
+    </script>
+  </body>
+</html>

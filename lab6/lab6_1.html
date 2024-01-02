@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> Кобельчук А.И.</title>
+   <style>
+    
+  </style>
+  </head>
+  <body>
+    <script>
+        "use strict";
+        let acoustic = {
+            type: "drednout",
+            amplifier: "marshall",
+            maxPower: 500,
+            material: "bereza",
+            info: function(){
+                return `type: ${this.type},
+                 amplifier: ${this.amplifier},
+                 max power: ${this.maxPower},
+                 material: ${this.material}.`;
+            }
+        }
+        document.write(acoustic.info());
+  </script>
+  </body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Кобельчук Андрей</title>
+    <style>
+      td {
+        width: 100px;
+        height: 95px;
+      }
+      input {
+        height: 100%;
+        width: 98%;
+      }
+      button {
+        font-size: larger;
+        font-weight: bolder;
+        height: 100%;
+        width: 100%;
+      }
+      table {
+        margin: auto;
+        background-color: rgb(123, 198, 248);
+        border: 6px solid rgb(11, 8, 160);
+      }
+    </style>
+    <script src="jQuery.js"></script>
+  </head>
+  <body>
+    <table>
+      <tbody>
+        <tr>
+          <td colspan="4"><input type="text" id="inputField" /></td>
+        </tr>
+        <tr>
+          <td colspan="1" class="Obrabotka"><button>MR</button></td>
+          <td colspan="1" class="Obrabotka"><button>M+</button></td>
+          <td colspan="3" class="Obrabotka"><button>C</button></td>
+        </tr>
+        <tr>
+          <td><button>1</button></td>
+          <td><button>2</button></td>
+          <td><button>3</button></td>
+          <td><button>/</button></td>
+        </tr>
+        <tr>
+          <td><button>4</button></td>
+          <td><button>5</button></td>
+          <td><button>6</button></td>
+          <td><button>*</button></td>
+        </tr>
+        <tr>
+          <td><button>7</button></td>
+          <td><button>8</button></td>
+          <td><button>9</button></td>
+          <td><button>-</button></td>
+        </tr>
+        <tr>
+          <td><button>0</button></td>
+          <td><button>.</button></td>
+          <td class="Obrabotka"><button>=</button></td>
+          <td><button>+</button></td>
+        </tr>
+      </tbody>
+    </table>
+    <script>
+      let input = document.getElementById("inputField");
+      let addSymbol = (symbol) => {
+        let where = $(symbol);
+        return (e) => {
+          if (!e.target.parentElement.classList.contains("Obrabotka"))
+            where.val(where.val() + e.target.textContent);
+          if (e.target.textContent == "=") {
+            where.val(eval(where.val()));
+          }
+          if (e.target.textContent == "MR") {
+            let storedvalue = localStorage.getItem(0);
+            input.value += storedvalue;
+          }
+          if (e.target.textContent == "M+") {
+            localStorage.setItem(0, eval(input.value));
+          }
+          if (e.target.textContent == "C") {
+            input.value = "";
+          }
+        };
+      };
+
+      let buttons = $("button");
+      for (let i = 0; i < buttons.length; i++) {
+        buttons[i].onclick = addSymbol("input");
+      }
+
+      $("input").on("input", function (e) {
+        if (this.value.endsWith("="))
+          this.value = eval(this.value.slice(0, -1));
+      });
+    </script>
+  </body>
+</html>

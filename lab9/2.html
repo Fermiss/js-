@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Кобельчук Андрей</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      button {
+        left: 300px;
+        top: 200px;
+        height: 100px;
+        width: 200px;
+        position: absolute;
+        background-color: rgb(223, 48, 48);
+      }
+    </style>
+  </head>
+  <body>
+    <button>Нажми</button>
+    <script>
+      let button = document.querySelector("button");
+      let lock = true;
+      let i = 0;
+      button.onmousemove = function mouse() {
+        i++;
+        if (i > 1) button.textContent = "Нажми";
+        button.style.opacity = 0;
+        if (lock)
+          setTimeout(function timer() {
+            button.style.left =
+              Math.floor(Math.random() * Math.floor(window.innerWidth)) -
+              50 +
+              "px";
+            button.style.top =
+              Math.floor(Math.random() * Math.floor(window.innerHeight)) -
+              50 +
+              "px";
+            button.style.opacity = 1;
+            lock = true;
+          }, 3000);
+        lock = false;
+      };
+    </script>
+  </body>
+</html>

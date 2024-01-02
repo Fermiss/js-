@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> Кобельчук А.И.</title>       
+   <style>
+   .style1 {
+       border: 1px solid black; 
+       margin-left: 38%; 
+       margin-right: 38%;      
+       display: block;   
+       padding: 0.8%;
+       line-height: 60%;   
+   }      
+  </style>           
+  </head>
+  <body>        
+    <script>
+      "use strict";               
+        let today = new Date();       
+        let arr =[],sum=0,discount;
+        
+        arr.length = parseInt(prompt("Введите кол-во покупок: ", ""));      
+        for (let i = 0; i < arr.length; i++) 
+            arr[i] = parseInt(prompt("Введите стоимость покупки: ", "")); 
+        
+        while((discount = parseInt(prompt("Введите скидку от 1 до 5%: ", ""))) > 5 || discount < 1 || isNaN(discount))
+            alert("Ошибка, повторите ввод");
+             
+        document.write('<div class="style1">');  
+        document.write('<p>ООО "Евроторг"');
+        document.write('<h2 style="text-align:center;">СПАСИБО ЗА ПОКУПКУ!</h2>');
+        document.write('<p>Дата покупки: ' + today.toLocaleString());
+        
+        for (let i = 0; i < arr.length; i++) 
+            document.write('<p>Наименование товара '+(i+1)+' = ' + arr[i]);         
+        
+        for (let i = 0; i < arr.length; i++) 
+            sum += parseInt(arr[i]);
+                      
+        let reductionSum = sum / 100 * discount;
+        let resultSum = sum - reductionSum;
+ 
+        document.write('<h2>ИТОГО</h2>');    
+        document.write('<h2 style="text-align:right; margin-right: 150px;" >' + sum.toFixed(2) + ' BYN </h2>');
+        document.write('<p>Ваша скидка: ' + discount + '%');
+        document.write('<p style="text-align:right; margin-right: 150px;">' + reductionSum.toFixed(2) + ' BYN');
+        document.write('<h2>СУММА СО СКИДКОЙ</h2>');
+        document.write('<h2 style="text-align:right; margin-right: 150px;">' + resultSum.toFixed(2) + ' BYN</h2>');  
+        
+    </script>
+  </body>
+</html>

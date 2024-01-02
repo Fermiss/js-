@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        th,
+        td {
+            padding: 10px 20px;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+
+<body id="body">
+    <script>
+        class acoustic {
+            constructor(type, amplifier, maxPower, material) {
+                this.type = type;
+                this.amplifier = amplifier;
+                this.maxPower = maxPower;
+                this.material = material;
+            }
+            get getType() {
+                return this.type;
+            }
+            set setType(type) {
+                this.type = type;
+            }
+
+            get getAmplifier() {
+                return this.amplifier;
+            }
+            set setAmplifier(amplifier) {
+                this.amplifier = amplifier;
+            }
+
+            get getMaxPower() {
+                return this.maxPower;
+            }
+            set setMaxPower(maxPower) {
+                this.maxPower = maxPower;
+            }
+
+            get getMaterial() {
+                return this.material;
+            }
+            set setMaterial(material) {
+                this.material = material;
+            }
+
+            info() {
+                return `type: ${this.type},
+                 amplifier: ${this.amplifier},
+                 max power: ${this.maxPower},
+                 material: ${this.material}.`;
+            }
+        }
+        class extendAcoustic extends acoustic {
+            constructor(type, amplifier, maxPower, material, date, price) {
+                super(type, amplifier, maxPower, material);
+                this.date = date;
+                this.price = price;
+            }
+            get getDate() { return this.date; }
+            set setDate(date) { this.date = date; }
+
+            get getPrice() { return this.price; }
+            set setPrice(price) { this.price = price; }
+
+            info() {
+                return `type: ${this.type},
+                 amplifier: ${this.amplifier},
+                 max power: ${this.maxPower},
+                 material: ${this.material}.
+                 date: ${this.date},
+                 price: ${this.price}`;
+            }
+        }
+
+        let arr = [
+            new extendAcoustic("type1", "ampl", 200, "dub", "29.09.2022", 500),
+            new extendAcoustic("type1", "ampl", 200, "dub", "29.09.2022", 500),
+            new extendAcoustic("type1", "ampl", 200, "dub", "29.09.2014", 500),
+            new extendAcoustic("type1", "ampl", 200, "dub", "29.09.2018", 500)];
+
+        Table(arr);
+
+
+        function Table(arr) {
+            let table = document.createElement('table');
+            let thead = document.createElement('thead');
+            let tbody = document.createElement('tbody');
+            let tr = document.createElement('tr');
+
+            table.appendChild(thead);
+            table.appendChild(tbody);
+
+            document.getElementById('body').appendChild(table);
+            for (const key in arr[0]) {
+                th = document.createElement("th");
+                th.innerHTML = key;
+                tr.appendChild(th);
+            }
+            thead.appendChild(tr);
+
+            arr.forEach(x => {
+                tr = document.createElement("tr");
+                for (const el in x) {
+                    td = document.createElement("td");
+                    td.innerHTML = x[el];
+                    tr.appendChild(td);
+                }
+                tbody.appendChild(tr);
+            });
+            tbody.appendChild(tr);
+        }
+    </script>
+</body>
+
+</html>
